@@ -11,16 +11,16 @@ services:
     ports:
       - 5432:5432
 
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.local
-  #   container_name: itools-catalog-service
-  #   environment:
-  #     - PORT=${PORT}
-  #   ports:
-  #     - '3000:3000'
-  #   depends_on:
-  #     - db
-  #   volumes:
-  #     - ./src:/app/src
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    container_name: itools-catalog-service
+    environment:
+      - PORT=${PORT}
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src

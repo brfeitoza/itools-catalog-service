@@ -10,6 +10,7 @@ export class ProductsService {
   }
 
   async getById(id: string): Promise<ProductDto> {
+    console.log('buscando produto', id);
     return prisma.product.findUnique({
       where: {
         id,
