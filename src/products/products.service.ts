@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { prisma } from 'src/config/prisma';
 import { ProductDto } from './dto/ProductDto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class ProductsService {
@@ -35,6 +36,18 @@ export class ProductsService {
     return prisma.product.delete({
       where: {
         id,
+      },
+    });
+  }
+
+  async deleteMany(
+    ids: string[],
+  ): Promise<Prisma.PrismaPromise<Prisma.BatchPayload>> {
+    return prisma.product.deleteMany({
+      where: {
+        id: {
+          in: ids,
+        },
       },
     });
   }

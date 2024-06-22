@@ -10,7 +10,9 @@ async function bootstrap() {
     .setVersion('1.0')
     .addTag('itools-catalog-service')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
+
   SwaggerModule.setup('api', app, document);
 
   const port = process.env.PORT || 3000;
